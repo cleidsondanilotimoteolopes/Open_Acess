@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa com Cluster - Exemplo Wheelmap</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script>
+    // Criar o mapa
+    const map = L.map('map').setView([-8.05, -34.9], 12); // Recife como exemplo
+
+    // Adicionar camada de mapa (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Criar grupo de clusters
+    const markers = L.markerClusterGroup();
+
+    // Exemplo de pontos (poderiam vir de um banco de dados ou API)
+    const locais = [
+      { name: "Shopping Recife", coords: [-8.1195, -34.9046] },
+      { name: "Praça do Marco Zero", coords: [-8.0632, -34.8711] },
+      { name: "Parque da Jaqueira", coords: [-8.0333, -34.9076] },
+      { name: "Universidade Uninassau", coords: [-8.0462, -34.9011] },
+      { name: "Porto Digital", coords: [-8.0631, -34.8720] },
+      { name: "Boa Viagem Praia", coords: [-8.1356, -34.9008] },
+      { name: "Instituto Ricardo Brennand", coords: [-8.0725, -34.9784] }
+    ];
+
+    // Adicionar pontos ao cluster
+    locais.forEach(local => {
+      const marker = L.marker(local.coords)
+        .bindPopup(`<b>${local.name}</b>`);
+      markers.addLayer(marker);
+    });
+
+    // Adicionar cluster no mapa
+    map.addLayer(markers);
+  </script>
+</body>
+</html>
