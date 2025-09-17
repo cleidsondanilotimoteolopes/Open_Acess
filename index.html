@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - OpenAcess</title>
+    <link rel="stylesheet" href="style/index.css">
 </head>
+
 <body>
-  
+    <img class="fundo" src="img/fundo_login.jpg" alt="fundo do site">
+
+    <fieldset>
+        <form action="./page/Mapa.html" method="POST" target="_self">
+            <h1 class="Título">OpenAcess</h1>
+            <h2>Login</h2>
+            <label for="usuario"></label>
+            <input type="text" id="usuario" name="usuario" placeholder="Usuário ou Email" required autofocus><br><br>
+
+            <label for="senha"></label>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required minlength="8"> <br><br>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="lembrar" name="lembrar">
+                <label for="lembrar">Lembre-me</label><br><br>
+            </div>
+
+            <button type="submit">Entrar</button><br><br>
+
+            <a href="page/Recupera_senha.html" style="color: white;">Esqueceu a senha?</a><br>            <hr>
+            <button type="submit">Criar nova conta</button>
+
+        </form>
+
+    </fieldset>
+
 </body>
 </html>
