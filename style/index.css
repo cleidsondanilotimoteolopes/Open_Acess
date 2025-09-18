@@ -7,7 +7,7 @@ body{
 }
 
 .fundo {
-    filter:  blur(4px);
+    filter:  blur(3px);
     position: absolute;
     top: 0;
     left: 0;
@@ -17,6 +17,7 @@ body{
     background-size: cover;
     background-position: center;
     z-index: -1; /* Coloca o fundo atrás do conteúdo */
+    
 }
 
 fieldset{
