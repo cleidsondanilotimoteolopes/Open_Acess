@@ -1,0 +1,29 @@
+/* Estilos para os clusters */
+.marker-cluster-small {
+  background-color: rgba(144, 238, 144, 0.6); /* Verde claro */
+}
+.marker-cluster-small div {
+  background-color: rgba(34, 139, 34, 0.6); /* Verde escuro */
+}
+
+.marker-cluster-medium {
+  background-color: rgba(255, 255, 0, 0.6); /* Amarelo claro */
+}
+.marker-cluster-medium div {
+  background-color: rgba(255, 215, 0, 0.6); /* Amarelo escuro */
+}
+
+.marker-cluster-large {
+  background-color: rgba(255, 99, 71, 0.6); /* Vermelho claro */
+}
+.marker-cluster-large div {
+  background-color: rgba(220, 20, 60, 0.6); /* Vermelho escuro */
+}
+
+/* Efeitos de transição */
+.marker-cluster div,
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  transition: all 0.3s ease-out;
+}

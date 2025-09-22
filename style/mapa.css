@@ -1,106 +1,222 @@
+/* -------------------------
+   MAPA - Estilo principal
+   Substitua o arquivo mapa.css
+   ------------------------- */
+
 /* Reset e corpo */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #fafafa;
+  color: #222;
 }
 
-/* Mapa ocupa a área abaixo da navbar */
-#map {
-  position: absolute;
-  top: 56px;    /* altura da navbar */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
+/* NAVBAR superior: cinza de fundo; nome colorido em degradê */
+.navbar {
+  background: #f1f3f5; /* navbar cinza claro (como na foto) */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  z-index: 1100;
+}
+.navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  /* degradê no texto (cor da logo) */
+  background: linear-gradient(90deg, #4a7aff, #9b5df5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Barra de busca fora da navbar */
+/* Barra de busca flutuante (preservada) */
 .search-bar {
   position: absolute;
-  top: 70px;                /* um pouco abaixo da navbar */
+  top: 70px;                 /* mantém flutuando abaixo da navbar */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1050;
-  width: 10%;
+  z-index: 1200;
+  width: 40%;                /* desktop: ocupa 40% da tela */
+  max-width: 900px;
+  min-width: 300px;
+  pointer-events: auto;
 }
 
-/* Sugestões */
-#sugestoes {
-  top: 100%; 
-  left: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  max-height: 200px;
-  overflow-y: auto;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 1060;
+/* Campo de busca */
+#campoBusca {
+  border: 2px solid rgba(74,122,255,0.5); /* leve contorno azul */
+  border-radius: 30px;
+  padding: 10px 16px;
+  box-shadow: 0 4px 12px rgba(74,122,255,0.06);
 }
 
-.list-group-item {
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.list-group-item:hover {
-  background-color: #e9ecef;
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
-/* Item selecionado via teclado */
-.list-group-item.active {
-  background-color: #0d6efd;
+/* Botão microfone (mantive o degradê que você gostou) */
+#btnVoz {
+  margin-left: 8px;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: linear-gradient(135deg, #4a7aff, #9b5df5); /* COR MANTIDA */
   color: #fff;
+  box-shadow: 0 6px 18px rgba(75,110,255,0.18);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#btnVoz:hover { transform: translateY(-2px); }
+
+/* Texto "Ouvindo..." ao lado do microfone */
+#textoOuvindo {
+  margin-left: 10px;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(90deg, #4a7aff, #9b5df5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: none; /* JS mostrará quando estiver gravando */
 }
 
-/* Ícones de status na sidebar */
-.status {
-  font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 5px;
-  display: inline-block;
-  margin-bottom: 10px;
+/* Sugestões (lista) */
+#sugestoes {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(20,30,80,0.06);
+  z-index: 1250;
 }
-.verde { background-color: #4caf50; color: #fff; }
-.amarelo { background-color: #ffc107; color: #000; }
-.vermelho { background-color: #f44336; color: #fff; }
 
-/* Sidebar */
+/* iten da lista */
+.list-group-item {
+  transition: background-color .15s ease, transform .08s ease;
+  border: none;
+}
+.list-group-item:hover { background: #f4f7ff; transform: scale(1.01); cursor: pointer; }
+.list-group-item.active {
+  background: linear-gradient(90deg, #4a7aff, #9b5df5);
+  color: #fff;
+  border-radius: 8px;
+}
+
+/* Sidebar lateral (menu) */
+#sidebarMenu {
+  position: fixed;
+  top: 50px;          /* abaixo da navbar superior */
+  left: 0;
+  width: 230px;       /* largura desktop */
+  height: calc(100% - 56px);
+  background: #ffffff;
+  border-right: 1px solid #e6e6e6;
+  padding: 14px 10px;
+  z-index: 1150;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.04);
+}
+#sidebarMenu .nav-link {
+  color: #333;
+  padding: 10px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+#sidebarMenu .nav-link:hover {
+  background: linear-gradient(90deg, rgba(74,122,255,0.08), rgba(155,93,245,0.06));
+  color: #2e4dff;
+}
+
+/* Ícones */
+#sidebarMenu .bi { font-size: 1.2rem; }
+
+/* Sidebar de detalhes (quando clicar no marcador) */
 #sidebar {
   position: fixed;
-  top: 56px;
-  left: 0;
+  top: 130px;
+  left: 232px; /* Mantido para alinhar com o menu lateral */
   width: 360px;
   height: calc(100% - 56px);
   background-color: #fff;
-  border-right: 1px solid #ccc;
-  padding: 20px;
+  border-left: 1px solid #e6e6e6;
+  padding: 18px;
   overflow-y: auto;
   display: none;
-  z-index: 1040;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  z-index: 1155;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.04);
 }
-.close-btn {
+#sidebar .close-btn { position: absolute; top: 10px; right: 10px; }
+
+/* Status badges (verde / amarelo / vermelho) */
+.status {
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.verde  { background: #4caf50; color: #fff; }
+.amarelo{ background: #ffc107; color: #111; }
+.vermelho{ background: #f44336; color: #fff; }
+
+/* Mapa alinhado à direita da sidebar lateral */
+#map {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  /* Corrigindo o alinhamento */
+  width: calc(100% - 230px);
+  left: 230px;
 }
 
-/* Animação de voz */
+/* Animação de voz (bolinha pulsante) - mantém degradê */
 .voz-ativa {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background-color: #fff;
-  border: 3px solid #0d6efd;
+  background: linear-gradient(135deg, #4a7aff, #9b5df5);
   margin-left: 10px;
   animation: pulsar 1s infinite;
   display: none;
 }
-
 @keyframes pulsar {
-  0%   { transform: scale(1);   opacity: 0.6; }
-  50%  { transform: scale(1.5); opacity: 1;   }
-  100% { transform: scale(1);   opacity: 0.6; }
+  0%   { transform: scale(1); opacity: 0.6; }
+  50%  { transform: scale(1.45); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
 }
+
+/* ======================
+   RESPONSIVIDADE
+   ====================== */
+
+/* Tablet: reduz o menu lateral e ajusta mapas/busca */
+@media (max-width: 992px) {
+  #sidebarMenu { width: 80px; padding: 12px; }
+  #sidebarMenu .nav-link { font-size: 0.9rem; justify-content: center; }
+  #sidebarMenu .nav-link span { display: none; } /* só ícones visíveis */
+  #map { left: 80px; }
+  #sidebar { left: 80px; width: 320px; } /* se estiver aberto */
+  .search-bar { top: 66px; width: 60%; min-width: 260px; }
+}
+
+/* Mobile: esconde menu lateral (poupando espaço) e mapa full width */
+@media (max-width: 768px) {
+  #sidebarMenu { display: none; }   /* menu lateral oculto no mobile */
+  #sidebar { left: 0; width: 100%; height: 50%; top: auto; bottom: 0; } /* sidebar detalhes vira painel inferior */
+  #map { left: 0; top: 56px; }
+  .search-bar { top: 68px; left: 50%; transform: translateX(-50%); width: 92%; min-width: unset; }
+  #campoBusca { font-size: 0.95rem; padding: 10px; }
+  #btnVoz { width: 42px; height: 42px; }
+  #textoOuvindo { display: none; } /* espaço reduzido, manter só animação */
+  .voz-ativa { display: inline-block; } /* bolinha visível ao gravar */
+}
+
+/* Pequenos ajustes visuais */
+button:focus { outline: none; box-shadow: none; }
