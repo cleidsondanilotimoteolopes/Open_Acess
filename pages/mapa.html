@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Acessibilidade</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="../assets/css/clusters.css" />
+<link rel="stylesheet" href="../assets/css/mapa.css" />
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light shadow-sm fixed-top">
+    <div class="container-fluid">
+      <button class="btn d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <span class="navbar-brand mb-0 h1 fw-bold">OpenAccess</span>
+    </div>
+  </nav>
+
+  <div class="search-bar">
+    <div class="position-relative">
+      <div class="d-flex align-items-center">
+        <input
+          id="campoBusca"
+          class="form-control"
+          type="search"
+          placeholder="Pesquisar local ou categoria..."
+          aria-label="Search"
+        />
+        <button id="btnVoz" class="btn btn-outline-primary ms-2" title="Buscar por voz">
+          <i class="bi bi-mic-fill"></i>
+        </button>
+        <span id="textoOuvindo" class="ms-2 text-primary fw-bold" style="display:none;">Ouvindo...</span>
+        <div id="animacaoVoz" class="voz-ativa"></div>
+      </div>
+      <div id="sugestoes" class="list-group"></div>
+    </div>
+  </div>
+
+  <div id="sidebarMenu" class="bg-white border-end vh-100 p-3 shadow-sm position-fixed collapse d-md-block">
+    <ul class="nav flex-column">
+  <li class="nav-item mb-3">
+    <a class="nav-link d-flex align-items-center text-dark" href="../index.html">
+      <i class="bi bi-house-door me-2"></i> Início
+    </a>
+  </li>
+  <li class="nav-item mb-3">
+    <a class="nav-link d-flex align-items-center text-dark" href="#">
+      <i class="bi bi-info-circle me-2"></i> Sobre
+    </a>
+  </li>
+  <li class="nav-item mb-3">
+    <a class="nav-link d-flex align-items-center text-dark" href="#">
+      <i class="bi bi-bookmark me-2"></i> Favoritos
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link d-flex align-items-center text-dark" href="#">
+      <i class="bi bi-person-circle me-2"></i> Perfil
+    </a>
+  </li>
+  </ul>
+    <hr>
+    <h5 class="mt-3">Filtros de Acessibilidade</h5>
+   <div class="acessibility-buttons d-flex flex-wrap gap-2 mb-3">
+      <button class="category-btn btn btn-sm btn-outline-secondary active" data-filter-type="access" data-filter-value="all">
+        <i class="fas fa-th-list"></i> Todos
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="access" data-filter-value="yes">
+        <i class="bi bi-check-circle-fill"></i> Acessível
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="access" data-filter-value="limited">
+        <i class="bi bi-exclamation-circle-fill"></i> Limitado
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="access" data-filter-value="no">
+        <i class="bi bi-x-circle-fill"></i> Não Acessível
+      </button>
+    </div>
+    <h5 class="mt-4">Filtros por Categoria</h5>
+   <div class="category-buttons d-flex flex-wrap gap-2 mb-3">
+      <button class="category-btn btn btn-sm btn-outline-secondary active" data-filter-type="category" data-filter-value="all">
+        <i class="fas fa-th-list"></i> Todas
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="category" data-filter-value="restaurant">
+        <i class="bi bi-utensils"></i> Restaurantes
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="category" data-filter-value="shop">
+        <i class="bi bi-shop"></i> Lojas
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="category" data-filter-value="school">
+        <i class="bi bi-book"></i> Escolas
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="category" data-filter-value="hospital">
+        <i class="bi bi-hospital"></i> Hospitais
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="category" data-filter-value="pharmacy">
+        <i class="bi bi-capsule"></i> Farmácias
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="category" data-filter-value="park">
+        <i class="bi bi-tree"></i> Parques
+      </button>
+      <button class="category-btn btn btn-sm btn-outline-secondary" data-filter-type="category" data-filter-value="toilets">
+        <i class="bi bi-gender-ambiguous"></i> Banheiros
+      </button>
+    </div>
+  </div>
+  <aside id="sidebar">
+    <button class="close-btn btn btn-sm btn-outline-secondary">X</button>
+    <h4 id="local-nome"></h4>
+    <p id="local-categoria"></p>
+    <div id="local-status"></div>
+    <hr />
+    <p id="local-descricao"></p>
+  </aside>
+
+  <div id="map">
+    <div id="loading-indicator" style="display:none;">
+      <div class="spinner"></div>
+      <span class="loading-text">Carregando locais...</span>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/Mapa.js"></script>
+</body>
+</html>

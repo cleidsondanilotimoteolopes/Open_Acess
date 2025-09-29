@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Cadastro</title>
+    <link rel="stylesheet" href="../assets/css/log.css">
+</head>
+
+<body>
+
+    <form action="./sucess.html" method="post" target="_self">
+        <div class="cadastro-container">
+            <h1>OpenAcess</h1>
+            <h2>Cadastro</h2>
+
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" placeholder="Nome Completo" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="E-mail" required>
+
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" placeholder="Telefone (xx) xxxxx-xxxx" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" required>
+
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" placeholder="Usuário" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Senha (mínimo 8 caracteres)" required minlength="8">
+
+            <label for="confirmaSenha">Confirmar Senha</label>
+            <input type="password" id="confirmaSenha" placeholder="Confirmar Senha" required minlength="8">
+            <button type="submit">Cadastrar</button>
+            <p id="msg" class="msg"></p>
+        </div>
+    </form>
+</body>
+</html>

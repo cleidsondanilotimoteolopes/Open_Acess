@@ -1,0 +1,406 @@
+/* Loading Indicator centralizado e elegante */
+#map {
+  position: relative;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: calc(100% - 230px);
+  left: 230px;
+}
+
+/* Overlay elegante */
+#loading-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(1px);
+  background: rgba(255, 255, 255, 0.6);
+  transition: opacity 0.3s ease;
+}
+
+/* Spinner moderno em anel duplo */
+#loading-indicator .spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(74,122,255,0.15);
+  border-top: 6px solid #4a7aff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 18px;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Texto com efeito de fade pulsante */
+#loading-indicator .loading-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  letter-spacing: 0.6px;
+  animation: fade 1.5s infinite;
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Cluster cinza para locais sem nome/categoria */
+.marker-cluster.cluster-gray div {
+  background: #bdbdbd !important;
+  color: #222;
+  border: 2px solid #757575;
+}
+/* Cores customizadas para clusters de acessibilidade */
+.marker-cluster.cluster-yes div {
+  background: #4caf50 !important;
+  color: #fff;
+  border: 2px solid #388e3c;
+}
+.marker-cluster.cluster-limited div {
+  background: #ffc107 !important;
+  color: #222;
+  border: 2px solid #b28704;
+}
+.marker-cluster.cluster-no div {
+  background: #f44336 !important;
+  color: #fff;
+  border: 2px solid #b71c1c;
+}
+.marker-cluster.cluster-default div {
+  background: #43505a !important;
+  color: #fff;
+  border: 2px solid #4f637a;
+}
+/* -------------------------
+   MAPA - Estilo principal
+   Substitua o arquivo mapa.css
+   ------------------------- */
+
+/* Reset e corpo */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #fafafa;
+  color: #222;
+  /* NOVO: Impede o estouro lateral no mobile */
+  overflow-x: hidden;
+}
+
+/* NAVBAR superior: cinza de fundo; nome colorido em degradê */
+.navbar {
+  background: #f1f3f5; /* navbar cinza claro (como na foto) */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  z-index: 1100;
+  margin-top: 5px; /* Desce a navbar */
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  /* degradê no texto (cor da logo) */
+  background: linear-gradient(90deg, #4a7aff, #9b5df5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Barra de busca flutuante (preservada) */
+.search-bar {
+  /* Mudar de absolute para fixed para melhor alinhamento */
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1200;
+  width: 40%;
+  max-width: 900px;
+  min-width: 300px;
+  pointer-events: auto;
+}
+
+/* Campo de busca */
+#campoBusca {
+  border: 2px solid rgba(74,122,255,0.5); /* leve contorno azul */
+  border-radius: 30px;
+  padding: 10px 16px;
+  box-shadow: 0 4px 12px rgba(74,122,255,0.06);
+}
+
+/* Botão microfone (mantive o degradê que você gostou) */
+#btnVoz {
+  margin-left: 8px;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: linear-gradient(135deg, #4a7aff, #9b5df5); /* COR MANTIDA */
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(75,110,255,0.18);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#btnVoz:hover { transform: translateY(-2px); }
+
+/* Texto "Ouvindo..." ao lado do microfone */
+#textoOuvindo {
+  margin-left: 10px;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(90deg, #4a7aff, #9b5df5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: none; /* JS mostrará quando estiver gravando */
+}
+
+/* Sugestões (lista) */
+#sugestoes {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(20,30,80,0.06);
+  z-index: 1250;
+}
+
+/* iten da lista */
+.list-group-item {
+  transition: background-color .15s ease, transform .08s ease;
+  border: none;
+}
+.list-group-item:hover { background: #f4f7ff; transform: scale(1.01); cursor: pointer; }
+.list-group-item.active {
+  background: linear-gradient(90deg, #4a7aff, #9b5df5);
+  color: #fff;
+  border-radius: 8px;
+}
+
+
+/* Sidebar lateral (menu) */
+#sidebarMenu {
+  position: fixed;
+  top: 56px; /* altura da navbar */
+  left: 0;
+  width: 320px;
+  bottom: 0; /* ocupa até o fim da tela */
+  overflow-y: auto; /* ativa a rolagem */
+  background: #ffffff;
+  border-right: 1px solid #e6e6e6;
+  padding: 14px 16px;
+  z-index: 1150;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.04);
+}
+
+
+
+@media (min-width: 768px) {
+  #sidebarMenu {
+    transform: translateX(0) !important; /* Sempre visível no desktop */
+  }
+}
+#sidebarMenu.show {
+  transform: translateX(0);
+}
+#sidebarMenu .nav-link {
+  color: #333;
+  padding: 10px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+#sidebarMenu .nav-link:hover {
+  background: linear-gradient(90deg, rgba(74,122,255,0.08), rgba(155,93,245,0.06));
+  color: #2e4dff;
+}
+#sidebarMenu .bi { font-size: 1.2rem; }
+
+/* Botões de filtro (Acessibilidade e Categoria) */
+.acessibility-buttons, .category-buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  width: auto;
+  min-width: 0;
+  justify-content: flex-start;
+  padding-bottom: 20px; /* espaço extra no fim */
+}
+
+.acessibility-buttons > *, .category-buttons > * {
+  flex: 0 0 auto;
+}
+.acessibility-buttons::-webkit-scrollbar, .category-buttons::-webkit-scrollbar {
+  height: 6px;
+}
+.acessibility-buttons::-webkit-scrollbar-thumb, .category-buttons::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+.category-btn {
+    border-radius: 20px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.category-btn.active {
+    background: linear-gradient(90deg, #4a7aff, #9b5df5);
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+/* Sidebar de detalhes (quando clicar no marcador) */
+#sidebar {
+  position: fixed;
+  top: 130px;
+  left: 232px; /* Mantido para alinhar com o menu lateral */
+  width: 360px;
+  height: calc(100% - 56px);
+  background-color: #fff;
+  border-left: 1px solid #e6e6e6;
+  padding: 18px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1155;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.04);
+}
+#sidebar .close-btn { position: absolute; top: 10px; right: 10px; }
+
+/* Status badges (verde / amarelo / vermelho) */
+.status {
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.verde  { background: #4caf50; color: #fff; }
+.amarelo{ background: #ffc107; color: #111; }
+.vermelho{ background: #f44336; color: #fff; }
+
+/* Mapa alinhado à direita da sidebar lateral */
+#map {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  /* Corrigindo o alinhamento */
+  width: calc(100% - 230px);
+  left: 230px;
+}
+
+/* Animação de voz (bolinha pulsante) - mantém degradê */
+.voz-ativa {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a7aff, #9b5df5);
+  margin-left: 10px;
+  animation: pulsar 1s infinite;
+  display: none;
+}
+@keyframes pulsar {
+  0%   { transform: scale(1); opacity: 0.6; }
+  50%  { transform: scale(1.45); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+
+/* ======================
+   RESPONSIVIDADE
+   ====================== */
+
+/*
+   AJUSTES GERAIS: A sidebarMenu já é fixa e o mapa deve ocupar o espaço restante.
+   Removendo a duplicação de regras do mobile.
+*/
+
+/* Desktop (Acima de 992px) - Aumentando um pouco o menu e mapa para melhor uso do espaço */
+@media (min-width: 992px) {
+  #sidebarMenu { width: 320px; } /* Menu ainda mais largo */
+  #sidebar { left: 320px; width: 400px; } /* Sidebar detalhes acompanha */
+  #map { left: 320px; width: calc(100% - 320px); top: 56px; } /* Mapa alinhado ao menu */
+}
+
+/* Tablet (Entre 768px e 992px) - O seu antigo 'max-width: 992px' */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #sidebarMenu { width: 80px; padding: 12px; } /* Menu menor, apenas ícones */
+  #sidebarMenu .nav-link span { display: none; } /* Esconde o texto */
+  #sidebar { left: 80px; width: 320px; top: 56px; height: calc(100vh - 56px); }
+  #map { left: 80px; width: calc(100% - 80px); top: 56px; }
+  .search-bar { top: 66px; width: 60%; min-width: 260px; }
+}
+
+
+/* Mobile (Abaixo de 768px) - CORREÇÃO CRÍTICA */
+@media (max-width: 767.98px) {
+  
+  /* Corrigido: Remover 'display: none;' para permitir que o Bootstrap funcione. */
+ #sidebarMenu {
+    width: 80%; /* Ocupa 80% da tela */
+    height: calc(100vh - 56px);
+    top: 56px;
+    left: 0;
+    /* O transform: translateX(-100%) já está na regra principal, ocultando-o. */
+    /* Remove a sombra extra para mobile */
+    box-shadow: 2px 0 6px rgba(0,0,0,0.15); 
+ } 
+  
+  /* Menu Hamburguer: Força os links para o modo ícone */
+  #sidebarMenu .nav-link { justify-content: start; }
+  #sidebarMenu .nav-link span { display: inline-block; } /* Mantém o texto visível no menu expandido */
+
+
+ /* Sidebar de Detalhes (Inferior) */
+ #sidebar { 
+    left: 0; 
+    width: 100%; 
+    height: 50%; 
+    top: auto; 
+    bottom: 0;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1); 
+ } 
+ 
+ /* Mapa: Ocupa toda a largura */
+ #map { left: 0; width: 100%; top: 56px; }
+ 
+ /* Barra de Busca */
+ .search-bar { top: 68px; width: 92%; min-width: unset; }
+ #campoBusca { font-size: 0.95rem; padding: 10px; }
+ #btnVoz { width: 42px; height: 42px; }
+ #textoOuvindo { display: none; } 
+ .voz-ativa { display: none; } /* Ocultar a animação extra de voz no mobile */
+}
+
+/* Pequenos ajustes visuais */
+button:focus { outline: none; box-shadow: none; }

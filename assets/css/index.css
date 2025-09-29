@@ -1,0 +1,185 @@
+/* CONTAINER e FONTES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Fonte comum em designs modernos como a Rekord */
+}
+
+.container {
+    max-width: 1200px; /* Largura máxima para o conteúdo central */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* -------------------- CABEÇALHO (HEADER) - Estilo Rekord -------------------- */
+.header-rekord {
+    background-color: transparent; /* Fundo transparente */
+    position: fixed; /* Fixo no topo */
+    width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+.navbar-rekord {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    font-weight: 700;
+    font-size: 24px;
+    color: #4b0082; /* Mantenha o roxo da sua marca */
+}
+
+.logo img {
+    filter: drop-shadow(0 0 5px rgba(75, 0, 130, 0.5)); /* Sombra suave para o ícone */
+    border-radius: 50%;
+
+}
+
+/* Menu de Navegação */
+.menu-rekord {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+.nav-link-rekord {
+    text-decoration: none;
+    color: #333; /* Cor neutra para links */
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link-rekord:hover {
+    color: #6c63ff; /* Cor roxa no hover */
+}
+
+/* Botões Login/Cadastro */
+.cta-header-rekord a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login-rekord {
+    color: #6c63ff; /* Texto roxo */
+    border: 1px solid #6c63ff;
+}
+
+.btn-login-rekord:hover {
+    background-color: #f0f0ff;
+}
+
+.btn-cadastro-rekord {
+    background-color: #6c63ff; /* Fundo roxo */
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-cadastro-rekord:hover {
+    background-color: #4b0082;
+}
+
+/* -------------------- SEÇÃO HERO - Estilo Rekord -------------------- */
+.hero-rekord {
+    background-color: #f7f7f7; /* Fundo levemente cinza claro para a seção */
+    padding-top: 150px; /* Espaço para o cabeçalho fixo */
+    padding-bottom: 100px;
+}
+
+.hero-content-rekord {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Coluna de Texto */
+.hero-text-rekord {
+    max-width: 50%;
+}
+
+.hero-text-rekord h1 {
+    font-size: 3.5rem; /* Título grande e impactante */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+.highlight {
+    color: #6c63ff; /* Destaca a palavra chave com o roxo da marca */
+}
+
+.hero-text-rekord p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 35px;
+}
+
+/* Botão Principal */
+.btn-principal-rekord {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #6c63ff, #4b0082); /* Gradiente roxo */
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-principal-rekord:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(108, 99, 255, 0.6);
+}
+
+
+/* Coluna de Imagem/Ilustração */
+.hero-image-rekord {
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Adiciona um leve arredondamento na imagem */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 992px) {
+    .hero-content-rekord {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text-rekord,
+    .hero-image-rekord {
+        max-width: 100%;
+    }
+    .hero-image-rekord {
+        justify-content: center;
+        margin-top: 40px;
+    }
+    .hero-text-rekord h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-rekord {
+        display: none; /* Esconder menu principal no mobile, você pode adicionar um menu hamburguer aqui */
+    }
+    .navbar-rekord {
+        justify-content: space-between;
+    }
+}
