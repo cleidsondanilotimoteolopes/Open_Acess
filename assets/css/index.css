@@ -1,24 +1,27 @@
-/* CONTAINER e FONTES */
+/* RESET E FONTES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif; /* Fonte comum em designs modernos como a Rekord */
+    font-family: 'Inter', sans-serif; 
 }
 
 .container {
-    max-width: 1200px; /* Largura máxima para o conteúdo central */
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* -------------------- CABEÇALHO (HEADER) - Estilo Rekord -------------------- */
+/* -------------------- CABEÇALHO (HEADER) - FIXO -------------------- */
+
 .header-rekord {
-    background-color: transparent; /* Fundo transparente */
-    position: fixed; /* Fixo no topo */
+    background-color: white; 
+    border-bottom: 1px solid #eee;
+    position: fixed; 
     width: 100%;
     padding: 15px 0;
-    z-index: 1000;
+    z-index: 1000; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
 }
 
 .navbar-rekord {
@@ -27,19 +30,24 @@
     align-items: center;
 }
 
+.logo {
+    display: flex; 
+    align-items: center;
+}
+
+/* Arredondamento da Logo */
+.logo-img {
+    border-radius: 50%; /* Torna a imagem perfeitamente redonda */
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.2); /* Sombra suave para destacar */
+}
+
 .logo h2 {
     font-weight: 700;
-    font-size: 24px;
-    color: #4b0082; /* Mantenha o roxo da sua marca */
+    font-size: 20px;
+    color: #4b0082; 
 }
 
-.logo img {
-    filter: drop-shadow(0 0 5px rgba(75, 0, 130, 0.5)); /* Sombra suave para o ícone */
-    border-radius: 50%;
-
-}
-
-/* Menu de Navegação */
+/* Menu de Navegação - Desktop */
 .menu-rekord {
     list-style: none;
     display: flex;
@@ -49,13 +57,13 @@
 
 .nav-link-rekord {
     text-decoration: none;
-    color: #333; /* Cor neutra para links */
+    color: #333; 
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .nav-link-rekord:hover {
-    color: #6c63ff; /* Cor roxa no hover */
+    color: #6c63ff; 
 }
 
 /* Botões Login/Cadastro */
@@ -68,7 +76,7 @@
 }
 
 .btn-login-rekord {
-    color: #6c63ff; /* Texto roxo */
+    color: #6c63ff; 
     border: 1px solid #6c63ff;
 }
 
@@ -77,7 +85,7 @@
 }
 
 .btn-cadastro-rekord {
-    background-color: #6c63ff; /* Fundo roxo */
+    background-color: #6c63ff; 
     color: white;
     margin-left: 10px;
 }
@@ -86,10 +94,56 @@
     background-color: #4b0082;
 }
 
-/* -------------------- SEÇÃO HERO - Estilo Rekord -------------------- */
+/* Regras de Visibilidade para Mobile/Desktop CTAs */
+.cta-header-rekord.mobile-only {
+    display: none;
+}
+.cta-header-rekord.desktop-only {
+    /* Garante que os botões fiquem visíveis no desktop */
+    display: flex;
+    gap: 10px;
+}
+
+/* -------------------- BOTÃO HAMBURGER -------------------- */
+
+.menu-toggle {
+    display: none; /* Oculta em telas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001; 
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 4px 0;
+    background-color: #333; 
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Animação do X no Hamburger */
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* -------------------- SEÇÃO HERO - ESTILO REKORD -------------------- */
+
 .hero-rekord {
-    background-color: #f7f7f7; /* Fundo levemente cinza claro para a seção */
-    padding-top: 150px; /* Espaço para o cabeçalho fixo */
+    background-color: #f7f7f7; 
+    padding-top: 100px; 
     padding-bottom: 100px;
 }
 
@@ -100,13 +154,29 @@
     gap: 40px;
 }
 
+/* -------------------- ANIMAÇÕES -------------------- */
+
+/* 1. Definição da Animação de Fade In */
+@keyframes fadeInSlideRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInSlideLeft {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
 /* Coluna de Texto */
 .hero-text-rekord {
     max-width: 50%;
+    /* Aplicação da Animação */
+    animation: fadeInSlideRight 1s ease-out 0.2s forwards; 
+    opacity: 0; /* Esconde inicialmente */
 }
 
 .hero-text-rekord h1 {
-    font-size: 3.5rem; /* Título grande e impactante */
+    font-size: 3.5rem; 
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 25px;
@@ -114,7 +184,7 @@
 }
 
 .highlight {
-    color: #6c63ff; /* Destaca a palavra chave com o roxo da marca */
+    color: #6c63ff; 
 }
 
 .hero-text-rekord p {
@@ -127,7 +197,7 @@
 .btn-principal-rekord {
     display: inline-block;
     padding: 15px 30px;
-    background: linear-gradient(90deg, #6c63ff, #4b0082); /* Gradiente roxo */
+    background: linear-gradient(90deg, #6c63ff, #4b0082); 
     color: white;
     font-weight: 700;
     text-decoration: none;
@@ -147,17 +217,22 @@
     max-width: 50%;
     display: flex;
     justify-content: flex-end;
+    /* Aplicação da Animação */
+    animation: fadeInSlideLeft 1s ease-out 0.4s forwards; 
+    opacity: 0; /* Esconde inicialmente */
 }
 
 .responsive-img {
     max-width: 100%;
     height: auto;
-    border-radius: 15px; /* Adiciona um leve arredondamento na imagem */
+    border-radius: 15px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Media Queries para Responsividade */
+/* -------------------- MEDIA QUERIES PARA MOBILE -------------------- */
+
 @media (max-width: 992px) {
+    /* Hero Content */
     .hero-content-rekord {
         flex-direction: column;
         text-align: center;
@@ -171,15 +246,83 @@
         margin-top: 40px;
     }
     .hero-text-rekord h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Ajustado para telas médias */
+    }
+    .hero-text-rekord p {
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 768px) {
-    .menu-rekord {
-        display: none; /* Esconder menu principal no mobile, você pode adicionar um menu hamburguer aqui */
+
+    .hero-text-rekord h1 {
+        font-size: 2rem; /* Ajustado para telas pequenas */
     }
-    .navbar-rekord {
-        justify-content: space-between;
+    .hero-text-rekord p {
+        font-size: 1rem;
+    }
+    
+    
+    /* ------------------- ATIVAÇÃO DO HAMBURGER ------------------- */
+    .menu-toggle {
+        display: block; /* Mostra o botão hamburger */
+        order: -1; /* Posiciona o botão à esquerda */
+    }
+
+    .cta-header-rekord.desktop-only {
+        display: none; /* Esconde os CTAs do desktop */
+    }
+
+    /* ------------------- ESTILO DO MENU LATERAL (Side-Menu) ------------------- */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 75%; /* Largura do menu lateral no mobile */
+        max-width: 300px;
+        height: 100vh;
+        background-color: white; 
+        padding-top: 80px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        
+        /* ANIMAÇÃO DE SLIDE IN */
+        transform: translateX(-100%); 
+        transition: transform 0.4s ease-in-out;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .nav-menu.open {
+        transform: translateX(0); /* Estado Aberto */
+    }
+
+    .menu-rekord {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 30px;
+        width: 100%;
+    }
+    
+    .nav-link-rekord {
+        font-size: 1.1rem;
+        display: block;
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .cta-header-rekord.mobile-only {
+        display: flex;
+        flex-direction: column;
+        padding: 0 30px;
+        gap: 10px;
+    }
+    
+    /* Ajusta os botões para preencherem a largura no menu lateral */
+    .cta-header-rekord.mobile-only a {
+        text-align: center;
+        margin-left: 0;
     }
 }

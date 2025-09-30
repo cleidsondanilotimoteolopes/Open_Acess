@@ -1,49 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAccess</title>
+    <title>OpenAccess - Descubra Locais Acessíveis</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
 </head>
-<header class="header-rekord">
-    <div class="container navbar-rekord">
-        <div class="logo">
-            <img src="assets/img/logo.png" alt="Ícone Acessibilidade" width="60"> 
-        </div>
-
-        <nav>
-            <ul class="menu-rekord">
-                <li><a href="index.html" class="nav-link-rekord">Home</a></li>
-                <li><a href="#" class="nav-link-rekord">Sobre</a></li>
-                <li><a href="pages/mapa.html" class="nav-link-rekord">Mapa</a></li>
-                <li><a href="#" class="nav-link-rekord">Contato</a></li>
-            </ul>
+<body>
+    <header class="header-rekord">
+    <div class="container">
+        <nav class="navbar-rekord">
+            
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="Logo OpenAcess" class="logo-img" style="height:40px;vertical-align:middle;">
+                <h2 style="display:inline;vertical-align:middle;margin-left:10px;">OpenAccess</h2>
+            </div>
+            
+            <nav class="nav-menu"> 
+                <ul class="menu-rekord">
+                    <li><a href="#" class="nav-link-rekord">Home</a></li>
+                    <li><a href="#" class="nav-link-rekord">Sobre</a></li>
+                    <li><a href="pages/Mapa.html" class="nav-link-rekord">Mapa</a></li>
+                    <li><a href="#" class="nav-link-rekord">Contato</a></li>
+                </ul>
+                <div class="cta-header-rekord mobile-only">
+                    <a href="pages/login.html" class="btn-login-rekord">Login</a>
+                    <a href="pages/cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+                </div>
+            </nav>
+            <div class="cta-header-rekord desktop-only">
+                <a href="pages/login.html" class="btn-login-rekord">Login</a>
+                <a href="pages/cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+            </div>
         </nav>
-
-        <div class="cta-header-rekord">
-            <a href="pages/login.html" class="btn-login-rekord">Login</a>
-            <a href="pages/cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
-        </div>
     </div>
 </header>
 
-<section class="hero-rekord">
-    <div class="container hero-content-rekord">
-        <div class="hero-text-rekord">
-            <h1>
-                Descubra locais <span class="highlight">acessíveis</span> com facilidade.
-            </h1>
-            <p>
-                A plataforma que conecta e unifica dados de acessibilidade para te guiar pelas cidades de Pernambuco.
-            </p>
-            <a href="pages/mapa.html" class="btn-principal-rekord">
-                Encontrar Locais Acessíveis
-            </a>
+    <section class="hero-rekord">
+        <div class="container hero-content-rekord">
+            <div class="hero-text-rekord">
+                <h1>
+                    Descubra locais <span class="highlight">acessíveis</span> com confiança.
+                </h1>
+                <p>
+                    A plataforma que conecta e unifica dados de acessibilidade para te guiar e te permitir contribuir com a comunidade, tornando as cidades mais inclusivas.
+                </p>
+                <a href="pages/Mapa.html" class="btn-principal-rekord">
+                    Encontrar Locais Acessíveis
+                </a>
+            </div>
+            
+            <div class="hero-image-rekord">
+                <img src="assets/img/ilustra_map.png" alt="Ilustração do Mapa de Acessibilidade" class="responsive-img">
+            </div>
         </div>
-        
-        <div class="hero-image-rekord">
-            <img src="assets/img/ilustra_map.png" alt="Ilustração do Mapa de Acessibilidade" class="responsive-img">
-        </div>
-    </div>
-</section>
+    </section>
+
+    <section style="height: 1000px; background-color: #f0f0f0; padding-top: 50px; text-align: center;">
+        <h2>Outras Seções da Sua Página (Para Testar o Scroll)</h2>
+        <p>Esta seção irá rolar normalmente, enquanto a navbar permanece fixa no topo.</p>
+    </section>
+    <script src="assets/js/navbar.js"></script>
+</body>
+</html>
