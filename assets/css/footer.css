@@ -1,0 +1,127 @@
+/* -------------------- RODAPÉ (FOOTER) - Estilo Simplificado -------------------- */
+
+.footer-rekord {
+    background: linear-gradient(135deg, #1a2a6c, #4b0082); /* Fundo escuro com gradiente */
+    color: white;
+    padding: 60px 0 20px 0;
+    font-size: 1rem;
+}
+
+/* NOVO: Ajuste para as duas colunas principais */
+.footer-content-simple {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px; /* Maior espaçamento */
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-col-main {
+    flex: 1;
+    max-width: 350px;
+}
+
+.footer-col-links {
+    flex: 1;
+    display: flex; /* Divide os links de navegação e legal */
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.footer-logo img {
+    /* Garante que a logo fique visível no fundo escuro. */
+    filter: brightness(2); 
+    height: 40px;
+}
+
+.footer-logo h2 {
+    color: white !important; 
+    font-size: 20px;
+}
+
+.footer-col-main p {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Estilos de Título e Links (mantidos) */
+.footer-col-links h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #6c63ff; 
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #6c63ff;
+}
+
+/* Redes Sociais */
+.social-icons {
+    margin-top: 25px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #6c63ff;
+}
+
+/* Parte Inferior do Footer */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Media Query para responsividade */
+@media (max-width: 768px) {
+    .footer-content-simple {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .footer-col-main {
+        max-width: 100%;
+    }
+    
+    .footer-col-links {
+        flex-direction: column; /* Links em pilhas verticais */
+        gap: 40px;
+    }
+    
+    .links-group {
+        width: 100%;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}

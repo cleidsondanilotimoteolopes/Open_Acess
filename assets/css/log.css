@@ -1,122 +1,206 @@
-```css
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", Arial, sans-serif;
+/* Estilos para a página de perfil */
+
+/* Main Content */
+.perfil-page-main {
+    /* Empurra o conteúdo para baixo devido ao header fixo */
+    padding-top: 100px; 
+    padding-bottom: 80px;
+    background-color: #f7f7f7;
 }
 
-/* Fundo com imagem */
-body {
-  background: url("../img/backlog.png") no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+/* Header do Perfil (Avatar e Stats) */
+.perfil-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
 }
 
-/* Container de cadastro */
-.cadastro-container {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  padding: 35px 30px;
-  border-radius: 16px;
-  width: 350px;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.35);
-  text-align: center;
-  animation: fadeIn 0.8s ease-in-out;
+.avatar-area {
+    display: flex;
+    align-items: center;
 }
 
-/* Títulos */
-h1 {
-  color: #ffffff;
-  font-weight: bold;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-  margin-bottom: 10px;
+.perfil-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 3px solid #6c63ff;
 }
 
-.cadastro-container h2 {
-  color: #f5f5f5;
-  font-weight: 500;
-  margin-bottom: 20px;
+.user-info h1 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    font-weight: 700;
 }
 
-/* Labels */
-label {
-  display: block;
-  text-align: left;
-  margin: 8px 0 4px;
-  font-size: 14px;
-  color: #ffffff;
-  font-weight: 500;
+.user-info .member-since {
+    font-size: 0.9rem;
+    color: #777;
 }
 
-/* Inputs */
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  background: rgba(255, 255, 255, 0.85);
-  font-size: 14px;
-  transition: all 0.3s;
+/* Estatísticas */
+.profile-stats {
+    display: flex;
+    gap: 30px;
+    text-align: center;
 }
 
-input:focus {
-  background: #ffffff;
-  box-shadow: 0 0 6px rgba(0, 102, 255, 0.6);
+.stat-card span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #6c63ff;
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* Botão */
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: linear-gradient(135deg, #007bff, #0056d6);
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
+.stat-card p {
+    font-size: 0.9rem;
+    color: #555;
 }
 
-button:hover {
-  background: linear-gradient(135deg, #0056d6, #003f99);
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+/* Navegação e Conteúdo (Abas) */
+.perfil-content {
+    display: flex;
+    gap: 30px;
 }
 
-/* Mensagens */
-.msg {
-  font-size: 14px;
-  margin-top: 10px;
+.perfil-nav {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    background-color: white;
+    padding: 20px 0;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.sucess {
-  color: #28a745;
-  font-weight: bold;
+.nav-tab {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.error {
-  color: #ff4d4d;
-  font-weight: bold;
+.nav-tab:hover:not(.active) {
+    background-color: #f0f0ff;
+    color: #6c63ff;
 }
 
-/* Animação */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.nav-tab.active {
+    background-color: #6c63ff;
+    color: white;
+    font-weight: 600;
 }
-```
+
+.btn-logout {
+    color: #ff4d4d;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.btn-logout:hover {
+    background-color: #ffe6e6 !important;
+    color: #cc0000 !important;
+}
+
+.tab-content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: none; /* Esconde o conteúdo por padrão */
+}
+
+.tab-content.active {
+    display: block; /* Mostra o conteúdo ativo */
+}
+
+.tab-content h2 {
+    font-size: 1.5rem;
+    color: #4b0082;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Formulário de Dados */
+.data-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Lista de Favoritos */
+.favorite-list {
+    list-style: none;
+    padding: 0;
+}
+.favorite-list li {
+    padding: 10px 0;
+    border-bottom: 1px dotted #eee;
+    color: #333;
+}
+.favorite-list li i {
+    color: #ff4d4d;
+    margin-right: 10px;
+}
+
+/* Media Queries para Perfil */
+@media (max-width: 992px) {
+    .perfil-content {
+        flex-direction: column;
+    }
+    .perfil-nav {
+        flex-direction: row; /* Abas viram botões horizontais */
+        flex-wrap: wrap;
+        min-width: 100%;
+        padding: 10px;
+        justify-content: center;
+    }
+    .nav-tab {
+        flex-grow: 1;
+        text-align: center;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .btn-logout {
+        margin-top: 5px;
+        border-top: none;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .perfil-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .avatar-area {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .perfil-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .profile-stats {
+        gap: 15px;
+    }
+}

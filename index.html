@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenAccess - Descubra Locais Acessíveis</title>
+
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/card.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    <meta name="keywords" content="Acessibilidade, Inclusão, Mapa de Acessibilidade, Locais Acessíveis, Rampas, Banheiros Adaptados, Sinalização, Pernambuco, Comunidade, Plataforma Colaborativa">
 </head>
 <body>
     <header class="header-rekord">
@@ -26,8 +31,8 @@
             
             <nav class="nav-menu"> 
                 <ul class="menu-rekord">
-                    <li><a href="#" class="nav-link-rekord">Home</a></li>
-                    <li><a href="#" class="nav-link-rekord">Sobre</a></li>
+                    <li><a href="index.html" class="nav-link-rekord">Home</a></li>
+                    <li><a href="pages/sobre.html" class="nav-link-rekord">Sobre</a></li>
                     <li><a href="pages/Mapa.html" class="nav-link-rekord">Mapa</a></li>
                     <li><a href="#" class="nav-link-rekord">Contato</a></li>
                 </ul>
@@ -64,10 +69,73 @@
         </div>
     </section>
 
-    <section style="height: 1000px; background-color: #f0f0f0; padding-top: 50px; text-align: center;">
-        <h2>Outras Seções da Sua Página (Para Testar o Scroll)</h2>
-        <p>Esta seção irá rolar normalmente, enquanto a navbar permanece fixa no topo.</p>
-    </section>
+    <section class="recursos-principais">
+    <div class="container">
+        <h2 class="section-title">Encontre Locais Acessíveis em 3 Passos Simples</h2>
+        <p class="section-subtitle">Tudo que você precisa para navegar pela cidade com confiança e contribuir para um Pernambuco mais inclusivo.</p>
+
+        <div class="recursos-grid">
+            <div class="recurso-card">
+                <div class="icon-wrapper"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>1. Pesquisa Inteligente no Mapa</h3>
+                <p>Use nosso mapa intuitivo para filtrar locais por categoria (restaurantes, hospitais) e tipo de acessibilidade.<br><br> Visualize todos os pontos de interesse na sua região.</p>
+            </div>
+
+            <div class="recurso-card">
+                <div class="icon-wrapper"><i class="fas fa-check-circle"></i></div>
+                <h3>2. Dados Verificados e Detalhados</h3>
+                <p>Veja informações completas sobre rampas, banheiros adaptados e sinalização.<br><br> Nossas classificações são baseadas em padrões rigorosos e feedback da comunidade.</p>
+            </div>
+
+            <div class="recurso-card">
+                <div class="icon-wrapper"><i class="fas fa-users"></i></div>
+                <h3>3. Contribua e Transforme</h3>
+                <p>Mantenha os dados atualizados! Adicione novos locais, envie fotos ou reporte informações incorretas.<br><br> Seu feedback é crucial para a acessibilidade de todos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer-rekord">
+    <div class="container">
+        <div class="footer-content-simple">
+            
+            <div class="footer-col-main">
+                <div class="logo footer-logo">
+                    <img src="assets/img/logo.png" alt="Logo OpenAcess" class="logo-img" style="height:40px;">
+                    <h2>OpenAccess</h2>
+                </div>
+                <p>
+                    Tornando as cidades de Pernambuco mais acessíveis. Sua plataforma colaborativa de inclusão.
+                </p>
+            </div>
+
+            <div class="footer-col-links">
+                <div class="links-group">
+                    <h3>Navegação</h3>
+                    <ul class="footer-links">
+                        <li><a href="pages/Mapa.html">Acessar Mapa</a></li>
+                        <li><a href="pages/sobre.html">Sobre Nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="links-group">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">FAQ / Ajuda</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 OpenAccess. Todos os direitos reservados. | Desenvolvido com <span style="color: red;">&hearts;</span> em Pernambuco.</p>
+        </div>
+    </div>
+</footer>
     <script src="assets/js/navbar.js"></script>
 </body>
 </html>

@@ -1,0 +1,228 @@
+/* -------------------- PÁGINA SOBRE NÓS -------------------- */
+
+/* Hero Secundário */
+.hero-secondary {
+    background-color: #e6e6fa; 
+    padding: 150px 0 80px 0;
+    text-align: center;
+}
+
+.hero-secondary h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.hero-secondary .subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Seção de Missão (Layout 2 Colunas) */
+.missao-openaccess {
+    padding: 80px 0;
+}
+
+.about-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4b0082;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.check-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.check-list li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.check-list li i {
+    color: #6c63ff; /* Cor do checkmark */
+    margin-right: 10px;
+}
+
+/* Seção de Valores (Grid 3 Colunas) */
+.nossos-valores {
+    background-color: #f7f7f7;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.valores-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.valor-card {
+    flex: 1;
+    padding: 30px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.valor-card i {
+    font-size: 3rem;
+    color: #6c63ff;
+    margin-bottom: 15px;
+}
+
+.valor-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.valor-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* CTA Final Secundário */
+.cta-final-secundario {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-final-secundario h2 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.cta-final-secundario p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* Media Queries para a Página Sobre Nós */
+@media (max-width: 992px) {
+
+    .missao-openaccess, .nossos-valores {
+        padding: 60px 0; /* Reduz o padding vertical */
+        background-color: #ffffff; 
+}
+
+    /* Layout 2 Colunas vira 1 Coluna */
+    .about-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image, .about-text {
+        max-width: 100%;
+    }
+    .about-image {
+        order: -1; /* Coloca a imagem no topo no mobile */
+        margin-bottom: 30px;
+    }
+    .valores-grid {
+        flex-direction: column; /* Grid de 3 colunas vira 1 coluna */
+        /* Centraliza os cards de valor no mobile */
+        max-width: 400px; 
+        margin: 40px auto 0 auto;
+    }
+    .hero-secondary h1 {
+        font-size: 2.5rem;
+    }
+    /* Corrige o alinhamento das listas */
+    .check-list {
+        text-align: left;
+        /* Garante que a lista não fique colada nas laterais */
+        padding: 0 20px; 
+    }
+    .missao-openaccess, .nossos-valores {
+        padding: 60px 0; /* Reduz o padding vertical */
+    }
+}
+
+/* AJUSTES PARA TELAS MUITO PEQUENAS (Celulares até 576px) */
+@media (max-width: 576px) {
+    .hero-secondary {
+        padding: 120px 0 50px 0; /* Reduz o padding superior/inferior */
+    }
+    .hero-secondary h1 {
+        font-size: 2rem; /* Reduz o título principal */
+    }
+    .hero-secondary .subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    .about-text h2 {
+        font-size: 1.5rem; /* Reduz título H2 */
+    }
+    .about-text p, .check-list li {
+        font-size: 0.9rem; /* Torna o texto do corpo mais legível em telas pequenas */
+    }
+    .valores-grid {
+        margin: 30px 10px 0 10px; /* Reduz as margens para caber na tela */
+    }
+    .valor-card {
+        padding: 20px 15px; /* Reduz o padding interno do cartão */
+    }
+    .valor-card i {
+        font-size: 2.5rem; /* Reduz o tamanho do ícone */
+    }
+    .valor-card h3 {
+        font-size: 1.1rem;
+    }
+    .valor-card p {
+        font-size: 0.9rem;
+    }
+    .cta-final-secundario {
+        padding: 40px 0; /* Reduz o padding do CTA */
+    }
+    .cta-final-secundario h2 {
+        font-size: 1.8rem;
+    }
+    .cta-final-secundario p {
+        font-size: 1rem;
+    }
+    /* Garante que o texto dentro do container respeite as margens */
+    .container {
+        padding: 0 15px;
+    }
+}
