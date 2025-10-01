@@ -1,18 +1,4 @@
-/* RESET E FONTES */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif; 
-}
-
-.container {
-    max-width: 1200px; 
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* -------------------- CABEÇALHO (HEADER) - FIXO -------------------- */
+/* Estilos para a página de perfil */
 
 .header-rekord {
     background-color: white; 
@@ -29,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
 }
-z
+
 .logo {
     display: flex; 
     align-items: center;
@@ -37,8 +23,9 @@ z
 
 /* Arredondamento da Logo */
 .logo-img {
-    border-radius: 50%; /* Torna a imagem perfeitamente redonda */
+    border-radius: 70%; /* Torna a imagem perfeitamente redonda */
     box-shadow: 0 0 10px rgba(108, 99, 255, 0.2); /* Sombra suave para destacar */
+    
 }
 
 .logo h2 {
@@ -138,131 +125,209 @@ z
 .menu-toggle.is-active .bar:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
-
-/* -------------------- SEÇÃO HERO - ESTILO REKORD -------------------- */
-
-.hero-rekord {
-    background-color: #f7f7f7; 
+/* Main Content */
+.perfil-page-main {
+    /* Empurra o conteúdo para baixo devido ao header fixo */
     padding-top: 100px; 
-    padding-bottom: 100px;
+    padding-bottom: 80px;
+    background-color: #f7f7f7;
 }
 
-.hero-content-rekord {
+/* Header do Perfil (Avatar e Stats) */
+.perfil-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.avatar-area {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
 }
 
-/* -------------------- ANIMAÇÕES -------------------- */
-
-/* 1. Definição da Animação de Fade In */
-@keyframes fadeInSlideRight {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
+.perfil-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 3px solid #6c63ff;
 }
 
-@keyframes fadeInSlideLeft {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* Coluna de Texto */
-.hero-text-rekord {
-    max-width: 50%;
-    /* Aplicação da Animação */
-    animation: fadeInSlideRight 1s ease-out 0.2s forwards; 
-    opacity: 0; /* Esconde inicialmente */
-}
-
-.hero-text-rekord h1 {
-    font-size: 3.5rem; 
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 25px;
+.user-info h1 {
+    font-size: 1.8rem;
     color: #1a1a1a;
-}
-
-.highlight {
-    color: #6c63ff; 
-}
-
-.hero-text-rekord p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 35px;
-}
-
-/* Botão Principal */
-.btn-principal-rekord {
-    display: inline-block;
-    padding: 15px 30px;
-    background: linear-gradient(90deg, #6c63ff, #4b0082); 
-    color: white;
     font-weight: 700;
-    text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.btn-principal-rekord:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(108, 99, 255, 0.6);
+.user-info .member-since {
+    font-size: 0.9rem;
+    color: #777;
 }
 
-
-/* Coluna de Imagem/Ilustração */
-.hero-image-rekord {
-    max-width: 50%;
+/* Estatísticas */
+.profile-stats {
     display: flex;
-    justify-content: flex-end;
-    /* Aplicação da Animação */
-    animation: fadeInSlideLeft 1s ease-out 0.4s forwards; 
-    opacity: 0; /* Esconde inicialmente */
+    gap: 30px;
+    text-align: center;
 }
 
-.responsive-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.stat-card span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #6c63ff;
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* -------------------- MEDIA QUERIES PARA MOBILE -------------------- */
+.stat-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
 
+/* Navegação e Conteúdo (Abas) */
+.perfil-content {
+    display: flex;
+    gap: 30px;
+}
+
+.perfil-nav {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    background-color: white;
+    padding: 20px 0;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tab {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-tab:hover:not(.active) {
+    background-color: #f0f0ff;
+    color: #6c63ff;
+}
+
+.nav-tab.active {
+    background-color: #6c63ff;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-logout {
+    color: #ff4d4d;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.btn-logout:hover {
+    background-color: #ffe6e6 !important;
+    color: #cc0000 !important;
+}
+
+.tab-content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: none; /* Esconde o conteúdo por padrão */
+}
+
+.tab-content.active {
+    display: block; /* Mostra o conteúdo ativo */
+}
+
+.tab-content h2 {
+    font-size: 1.5rem;
+    color: #4b0082;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Formulário de Dados */
+.data-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Lista de Favoritos */
+.favorite-list {
+    list-style: none;
+    padding: 0;
+}
+.favorite-list li {
+    padding: 10px 0;
+    border-bottom: 1px dotted #eee;
+    color: #333;
+}
+.favorite-list li i {
+    color: #ff4d4d;
+    margin-right: 10px;
+}
+
+/* Media Queries para Perfil */
 @media (max-width: 992px) {
-    /* Hero Content */
-    .hero-content-rekord {
+    .perfil-content {
         flex-direction: column;
-        text-align: center;
     }
-    .hero-text-rekord,
-    .hero-image-rekord {
-        max-width: 100%;
-    }
-    .hero-image-rekord {
+    .perfil-nav {
+        flex-direction: row; /* Abas viram botões horizontais */
+        flex-wrap: wrap;
+        min-width: 100%;
+        padding: 10px;
         justify-content: center;
-        margin-top: 40px;
     }
-    .hero-text-rekord h1 {
-        font-size: 2.5rem; /* Ajustado para telas médias */
+    .nav-tab {
+        flex-grow: 1;
+        text-align: center;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 8px;
     }
-    .hero-text-rekord p {
-        font-size: 1.1rem;
+    .btn-logout {
+        margin-top: 5px;
+        border-top: none;
+        padding-top: 10px;
     }
 }
 
 @media (max-width: 768px) {
-
-    .hero-text-rekord h1 {
-        font-size: 2rem; /* Ajustado para telas pequenas */
+    .perfil-header {
+        flex-direction: column;
+        text-align: center;
     }
-    .hero-text-rekord p {
-        font-size: 1rem;
+    .avatar-area {
+        flex-direction: column;
+        margin-bottom: 20px;
     }
-    
-    
+    .perfil-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .profile-stats {
+        gap: 15px;
+    }
     /* ------------------- ATIVAÇÃO DO HAMBURGER ------------------- */
     .menu-toggle {
         display: block; /* Mostra o botão hamburger */
@@ -325,4 +390,16 @@ z
         text-align: center;
         margin-left: 0;
     }
+}
+@media (max-width: 576px) {
+    .perfil-header {
+        padding: 20px;
+    }
+    .perfil-content {
+        padding: 15px;
+    }
+    .tab-content {
+        padding: 20px;
+    }
+   
 }

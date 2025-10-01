@@ -1,0 +1,260 @@
+.contato-main-section {
+    padding: 100px 0; /* Mais espaçamento para respirar */
+    background-color: #fcfcfc; /* Fundo quase branco */
+}
+
+.titulo-section {
+    text-align: center;
+    margin-bottom: 60px; /* Mais espaço abaixo do título */
+    padding: 100px 0;
+}
+
+.titulo-section h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+.titulo-section .subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+/* Grid para Formulário e Informações */
+
+.contato-grid {
+    display: flex;
+    gap: 50px; /* Mais espaço entre as colunas */
+    align-items: flex-start;
+}
+
+/* Container do Formulário e Informações: Elevado e com bordas suaves */
+.contato-form-container,
+.contato-info-container {
+    flex: 1;
+    padding: 40px;
+    border-radius: 16px; /* Borda mais arredondada */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra mais suave e elevada */
+    transition: transform 0.3s ease-in-out;
+}
+
+.contato-form-container {
+    background-color: #ffffff; /* Fundo branco no formulário */
+    border: 1px solid #f0f0f0;
+}
+
+.contato-info-container {
+    background-color: #f0f0fa; /* Fundo sutilmente roxo claro para contraste */
+    border: 1px solid #e0e0f0;
+}
+
+/* Efeito Hover Sutil */
+.contato-form-container:hover,
+.contato-info-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contato-form-container h2,
+.contato-info-container h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #4b0082; /* Roxo escuro da marca */
+    margin-bottom: 30px;
+    position: relative;
+    /* Linha de destaque abaixo do título */
+    padding-bottom: 10px;
+}
+
+/* Linha de Destaque */
+.contato-form-container h2::after,
+.contato-info-container h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #6c63ff; /* Cor principal */
+    border-radius: 2px;
+}
+
+/* Estilo dos Inputs */
+.form-rekord label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-rekord input,
+.form-rekord select,
+.form-rekord textarea {
+    width: 100%;
+    padding: 14px; /* Mais padding */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Borda mais arredondada */
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fcfcfc;
+}
+
+.form-rekord input:focus,
+.form-rekord select:focus,
+.form-rekord textarea:focus {
+    border-color: #6c63ff;
+    outline: none;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Foco chamativo */
+}
+
+.form-rekord textarea {
+    resize: vertical;
+}
+
+/* Botão Principal no Formulário */
+.btn-principal-rekord {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+
+/* Informações de Contato */
+.info-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px; /* Mais espaço entre itens */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0f0; /* Linha de separação mais clara */
+}
+
+.info-item:last-of-type {
+    border-bottom: none;
+}
+
+.info-item i {
+    font-size: 2rem; /* Ícone maior */
+    color: #4b0082; /* Cor roxa escura */
+    margin-bottom: 15px;
+}
+
+.info-item h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.info-item p a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.info-item p a:hover {
+    color: #4b0082;
+}
+
+/* Redes Sociais */
+.social-links-contato {
+    margin-top: 30px;
+}
+
+.social-links-contato h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.social-links-contato a {
+    font-size: 1.8rem; /* Ícones maiores */
+    color: #6c63ff;
+    margin-right: 20px;
+}
+.social-links-contato a:hover {
+    color: #4b0082;
+}
+
+/* Media Queries (Mantidas, mas ajustadas para a nova estrutura) */
+@media (max-width: 992px) {
+    .contato-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .contato-form-container h2::after,
+    .contato-info-container h2::after {
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza a linha no mobile */
+    }
+    .contato-form-container,
+    .contato-info-container {
+        text-align: center;
+    }
+    .form-rekord label {
+        text-align: center;
+    }
+    .info-item {
+        align-items: center;
+    }
+    .info-item p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-rekord input,
+    .form-rekord select,
+    .form-rekord textarea {
+        padding: 12px; /* Ajusta o padding para telas muito pequenas */
+    }
+    .btn-principal-rekord {
+        width: 100%; /* Botão ocupa toda a largura */
+        padding: 15px 0;
+    }
+    .info-item i {
+        font-size: 1.5rem; /* Ícones um pouco menores */
+    }
+    .info-item h3 {
+        font-size: 1rem;
+    }
+    .social-links-contato a {
+        font-size: 1.5rem; /* Ícones um pouco menores */
+        margin-right: 15px;
+    }
+    .titulo-primario-contato h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    }
+    .titulo-section .subtitle {
+        font-size: 0.7rem;
+        color: #555;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .contato-grid {
+        gap: 30px; /* Reduz o gap entre as colunas */
+        padding: 0 20px; /* Padding lateral para telas pequenas */
+
+    }
+
+    .contato-form-container {
+        padding: 30px; /* Ajusta o padding interno */
+    }
+
+    .contato-info-container {
+        padding: 30px; /* Ajusta o padding interno */
+    }
+    .contato-info-container h2 {
+        font-size: 1.5rem; /* Títulos menores */
+        margin-bottom: 20px;
+    }
+}

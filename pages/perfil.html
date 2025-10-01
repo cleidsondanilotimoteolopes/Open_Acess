@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | OpenAccess</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/perfil.css">
+    <link rel="stylesheet" href="../assets/css/card.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header-rekord">
+        <div class="container">
+            <nav class="navbar-rekord">
+                <button class="menu-toggle" aria-label="Abrir Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="logo">
+                 <img src="../assets/img/logo.png" alt="Logo OpenAccess" class="logo-img" style="height:40px;vertical-align:middle;">
+                 <h2 style="display:inline;vertical-align:middle;margin-left:10px;">OpenAccess</h2>
+                </div>
+                <nav class="nav-menu"> 
+                    <ul class="menu-rekord">
+                        <li><a href="../index.html" class="nav-link-rekord">Home</a></li>
+                        <li><a href="sobre.html" class="nav-link-rekord">Sobre</a></li>
+                        <li><a href="mapa.html" class="nav-link-rekord">Mapa</a></li>
+                        <li><a href="#" class="nav-link-rekord">Contato</a></li>
+                    </ul>
+                    <div class="cta-header-rekord mobile-only">
+                        <a href="login.html" class="btn-login-rekord">Login</a>
+                        <a href="cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+                    </div>
+                </nav>
+                <div class="cta-header-rekord desktop-only">
+                    <a href="login.html" class="btn-login-rekord">Login</a>
+                    <a href="cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="perfil-page-main">
+        <div class="container">
+            <header class="perfil-header">
+                <div class="avatar-area">
+                    <img src="../assets/img/icone_user.jpg" alt="Avatar do Usuário" class="perfil-avatar">
+                    <div class="user-info">
+                        <h1>Olá, [Nome do Usuário]!</h1>
+                        <p class="member-since">Membro desde Dezembro/2024</p>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <span><i class="fas fa-map-marker-alt"></i> 12</span>
+                        <p>Locais Mapeados</p>
+                    </div>
+                    <div class="stat-card">
+                        <span><i class="fas fa-star"></i> 54</span>
+                        <p>Locais Favoritados</p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="perfil-content">
+                <nav class="perfil-nav">
+                    <button class="nav-tab active" data-tab="dados">Meus Dados</button>
+                    <button class="nav-tab" data-tab="contribuicoes">Minhas Contribuições</button>
+                    <button class="nav-tab" data-tab="favoritos">Favoritos</button>
+                    <button class="nav-tab btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                </nav>
+
+                <div class="tab-content active" id="dados">
+                    <h2>Dados da Conta</h2>
+                    <form class="data-form">
+                        <label>E-mail:</label>
+                        <input type="email" value="usuario@openaccess.com" readonly>
+                        
+                        <label>Nome de Usuário:</label>
+                        <input type="text" value="[Nome do Usuário]">
+                        
+                        <button type="button" class="btn-principal-rekord">Salvar Alterações</button>
+                    </form>
+                </div>
+
+                <div class="tab-content" id="contribuicoes">
+                    <h2>Histórico de Contribuições</h2>
+                    <p>Você ainda não realizou nenhuma contribuição. Mapeie seu primeiro local!</p>
+                </div>
+
+                <div class="tab-content" id="favoritos">
+                    <h2>Meus Locais Favoritos</h2>
+                    <ul class="favorite-list">
+                        <li><i class="fas fa-heart"></i> Restaurante Acessível - Boa Viagem</li>
+                        <li><i class="fas fa-heart"></i> Hospital Central - Recife</li>
+                    </ul>
+                </div>
+
+            </section>
+        </div>
+    </main>
+    <script src="../assets/js/perfil.js"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/perfil.js"></script>
+
+</body>
+</html>

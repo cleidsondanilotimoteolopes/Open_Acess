@@ -1,0 +1,72 @@
+/* -------------------- PÁGINA LEGAL (TERMOS E PRIVACIDADE) -------------------- */
+.legal-section {
+    padding-top: 150px; /* Espaçamento do header fixo */
+    padding-bottom: 80px;
+    background-color: white;
+}
+
+.legal-header {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.legal-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.legal-header p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.legal-article {
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.legal-article h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4b0082; /* Cor principal da marca */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.legal-article h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.legal-article p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .legal-section {
+        padding-top: 100px; 
+    }
+    .legal-header h1 {
+        font-size: 2rem;
+    }
+    .legal-article h2 {
+        font-size: 1.5rem;
+    }
+    .legal-article h3 {
+        font-size: 1.1rem;
+    }
+    .legal-article p {
+        font-size: 0.95rem;
+    }
+}

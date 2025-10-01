@@ -1,93 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil | OpenAccess</title>
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    <link rel="stylesheet" href="../assets/css/perfil.css"> 
+    <title>Cadastro | OpenAccess</title>
+    <link rel="stylesheet" href="../assets/css/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
-    <main class="perfil-page-main">
-        <div class="container">
-            
-            <header class="perfil-header">
-                <div class="avatar-area">
-                    <img src="../assets/img/default-avatar.png" alt="Avatar do Usuário" class="perfil-avatar">
-                    <div class="user-info">
-                        <h1>Olá, [Nome do Usuário]!</h1>
-                        <p class="member-since">Membro desde Dezembro/2024</p>
-                    </div>
-                </div>
-                <div class="profile-stats">
-                    <div class="stat-card">
-                        <span><i class="fas fa-map-marker-alt"></i> 12</span>
-                        <p>Locais Mapeados</p>
-                    </div>
-                    <div class="stat-card">
-                        <span><i class="fas fa-star"></i> 54</span>
-                        <p>Locais Favoritados</p>
-                    </div>
-                </div>
-            </header>
+    <div class="page-wrapper"> 
+        <form action="./sucess.html" method="post" target="_self">
+            <div class="cadastro-container">
+                <a href="../index.html" class="logo-link">
+                    <h1 class="logo-title">OpenAccess</h1>
+                </a>
+                <h2>Criar Sua Conta</h2>
 
-            <section class="perfil-content">
-                <nav class="perfil-nav">
-                    <button class="nav-tab active" data-tab="dados">Meus Dados</button>
-                    <button class="nav-tab" data-tab="contribuicoes">Minhas Contribuições</button>
-                    <button class="nav-tab" data-tab="favoritos">Favoritos</button>
-                    <button class="nav-tab btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
-                </nav>
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" placeholder="Seu nome completo" required>
 
-                <div class="tab-content active" id="dados">
-                    <h2>Dados da Conta</h2>
-                    <form class="data-form">
-                        <label>E-mail:</label>
-                        <input type="email" value="usuario@openaccess.com" readonly>
-                        
-                        <label>Nome de Usuário:</label>
-                        <input type="text" value="[Nome do Usuário]">
-                        
-                        <button type="button" class="btn-principal-rekord">Salvar Alterações</button>
-                    </form>
-                </div>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu.email@exemplo.com" required>
 
-                <div class="tab-content" id="contribuicoes">
-                    <h2>Histórico de Contribuições</h2>
-                    <p>Você ainda não realizou nenhuma contribuição. Mapeie seu primeiro local!</p>
-                </div>
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" placeholder="(99) 99999-9999" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" required>
 
-                <div class="tab-content" id="favoritos">
-                    <h2>Meus Locais Favoritos</h2>
-                    <ul class="favorite-list">
-                        <li><i class="fas fa-heart"></i> Restaurante Acessível - Boa Viagem</li>
-                        <li><i class="fas fa-heart"></i> Hospital Central - Recife</li>
-                    </ul>
-                </div>
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" placeholder="Nome de usuário" required>
 
-            </section>
-        </div>
-    </main>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Mínimo 8 caracteres" required minlength="8">
 
-    <script>
-        // (Coloque seu código JavaScript para o Menu Hamburger E o código das abas aqui)
-        // Lógica simples de troca de abas:
-        document.querySelectorAll('.perfil-nav .nav-tab').forEach(button => {
-            button.addEventListener('click', () => {
-                const tabId = button.getAttribute('data-tab');
+                <label for="confirmaSenha">Confirmar Senha</label>
+                <input type="password" id="confirmaSenha" placeholder="Confirme sua senha" required minlength="8">
                 
-                // Remove 'active' de todos os botões e conteúdos
-                document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                // Adiciona 'active' ao botão e conteúdo clicados
-                button.classList.add('active');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-    </script>
+                <button type="submit">Cadastrar</button>
+
+                <a href="../index.html" class="link-voltar">Voltar para a Home</a>
+
+                <p id="msg" class="msg"></p>
+            </div>
+        </form>
+    </div>
+    <script src="../assets/js/cadastro.js"></script> 
+
 </body>
 </html>

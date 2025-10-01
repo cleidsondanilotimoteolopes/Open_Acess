@@ -1,0 +1,97 @@
+/* -------------------- PÁGINA FAQ -------------------- */
+
+.faq-section {
+    padding: 60px 0 100px 0;
+    background-color: #ffffff;
+}
+
+.faq-category {
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+.faq-category h1{
+    margin-top: 3700px;
+}
+
+.faq-category h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4b0082;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.faq-category h2 i {
+    color: #6c63ff;
+    margin-right: 10px;
+}
+
+/* Item Acordeão (details/summary) */
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.faq-item summary {
+    display: block; /* Garante que a seta de detalhes não atrapalhe o layout */
+    padding: 18px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.faq-item summary:hover {
+    background-color: #f0f0ff;
+    color: #4b0082;
+}
+
+/* Estilo quando o item está aberto */
+.faq-item[open] summary {
+    background-color: #6c63ff;
+    color: white;
+    border-bottom: 1px solid #4b0082;
+}
+
+/* Resposta */
+.faq-answer {
+    padding: 15px 25px 20px 25px;
+    background-color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    /* Animação suave para abertura do conteúdo */
+    animation: fadeIn 0.5s ease-out;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* CTA Final na FAQ */
+.faq-category.final-cta {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background-color: #f0f0fa;
+    border-radius: 12px;
+}
+.faq-category.final-cta h2 {
+    color: #1a1a1a;
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+.faq-category.final-cta p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}

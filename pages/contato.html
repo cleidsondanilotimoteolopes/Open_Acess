@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | OpenAccess</title>
+    <link rel="stylesheet" href="../assets/css/contato.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+        <link rel="icon" type="image/png" href="../assets/img/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+        <header class="header-rekord">
+    <div class="container">
+        <nav class="navbar-rekord">
+            
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo OpenAccess" class="logo-img" style="height:40px;vertical-align:middle;">
+                <h2 style="display:inline;vertical-align:middle;margin-left:10px;">OpenAccess</h2>
+            </div>
+            
+            <nav class="nav-menu"> 
+                <ul class="menu-rekord">
+                    <li><a href="../index.html" class="nav-link-rekord">Home</a></li>
+                    <li><a href="sobre.html" class="nav-link-rekord">Sobre</a></li>
+                    <li><a href="Mapa.html" class="nav-link-rekord">Mapa</a></li>
+                    <li><a href="contato.html" class="nav-link-rekord">Contato</a></li>
+                </ul>
+                <div class="cta-header-rekord mobile-only">
+                    <a href="login.html" class="btn-login-rekord">Login</a>
+                    <a href="cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+                </div>
+            </nav>
+            <div class="cta-header-rekord desktop-only">
+                <a href="login.html" class="btn-login-rekord">Login</a>
+                <a href="cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+            </div>
+        </nav>
+    </div>
+</header>
+    <section class="contato-main-section">
+        <section class="titulo-primario-contato">
+        <div class="container">
+            <h1>Fale Conosco e Participe</h1>
+            <p class="subtitle">Seja para tirar dúvidas, fazer parcerias ou reportar um problema no mapa, estamos aqui para ouvir você.</p>
+        </div><br><br>
+    </section>
+        <div class="container contato-grid">
+            
+            <div class="contato-form-container">
+                <h2>Envie uma Mensagem</h2>
+                <form action="https://formspree.io/f/{}" method="POST" class="form-rekord">
+                    <label for="nome">Seu Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+
+                    <label for="email">Seu E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                    
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="" disabled selected>Escolha um assunto...</option>
+                        <option value="duvida">Dúvida Geral</option>
+                        <option value="parceria">Proposta de Parceria</option>
+                        <option value="reportar_erro">Reportar Erro no Mapa/Site</option>
+                        <option value="sugestao">Sugestão / Feedback</option>
+                    </select>
+
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..." required></textarea>
+
+                    <button type="submit" class="btn-principal-rekord">Enviar Mensagem</button>
+                    <p class="form-feedback" id="form-msg"></p>
+                </form>
+            </div>
+
+            <div class="contato-info-container">
+                <h2>Outras Formas de Contato</h2>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-mail de Suporte</h3>
+                    <p><a href="mailto:suporte@openaccess.com">suporte@openaccess.com</a></p>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Central de Ajuda (FAQ)</h3>
+                    <p>Encontre respostas rápidas na nossa <a href="#">Página de FAQ</a></p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Sede (Apenas Correspondência)</h3>
+                    <p>Recife, Pernambuco - Brasil</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/navbar.js"></script>
+    
+</body>
+</html>

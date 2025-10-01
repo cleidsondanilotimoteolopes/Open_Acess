@@ -118,6 +118,24 @@ body, html {
   -webkit-text-fill-color: transparent;
 }
 
+.logo {
+    display: flex; 
+    align-items: center;
+}
+
+/* Arredondamento da Logo */
+.logo-img {
+    border-radius: 70%; /* Torna a imagem perfeitamente redonda */
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.2); /* Sombra suave para destacar */
+    
+}
+
+.logo h2 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #4b0082; 
+}
+
 /* Barra de busca flutuante (preservada) */
 .search-bar {
   /* Mudar de absolute para fixed para melhor alinhamento */
