@@ -6,12 +6,42 @@
     <title>FAQ - Perguntas Frequentes | OpenAccess</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/faq.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
      <link rel="icon" type="image/png" href="../assets/img/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
 <body>
-    
+    <header class="header-rekord">
+        <div class="container">
+            <nav class="navbar-rekord">
+                <button class="menu-toggle" aria-label="Abrir Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="logo">
+                 <h2 style="display:inline;vertical-align:middle;margin-left:10px;">OpenAccess</h2>
+                </div>
+                <nav class="nav-menu"> 
+                    <ul class="menu-rekord">
+                        <li><a href="../index.html" class="nav-link-rekord">Home</a></li>
+                        <li><a href="sobre.html" class="nav-link-rekord">Sobre</a></li>
+                        <li><a href="mapa.html" class="nav-link-rekord">Mapa</a></li>
+                        <li><a href="#" class="nav-link-rekord">Contato</a></li>
+                    </ul>
+                    <div class="cta-header-rekord mobile-only">
+                        <a href="login.html" class="btn-login-rekord">Login</a>
+                        <a href="cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+                    </div>
+                </nav>
+                <div class="cta-header-rekord desktop-only">
+                    <a href="login.html" class="btn-login-rekord">Login</a>
+                    <a href="cadastro.html" class="btn-cadastro-rekord">Cadastro</a>
+                </div>
+            </nav>
+        </div>
+    </header>
     <section class="hero-secondary">
         <div class="container">
             <br><h1>Central de Ajuda: FAQ</h1><br>
@@ -74,9 +104,44 @@
         </div>
     </section>
 
+        <footer class="footer-rekord">
+        <div class="container">
+            <div class="footer-content-simple">
+                <div class="footer-col-main">
+                    <div class="logo footer-logo">
+                        <img src="../assets/img/logo.png" alt="Logo OpenAccess" class="logo-img" style="height:40px;">
+                        <h2> OpenAccess</h2>
+                    </div>
+                    <p>Tornando as cidades de Pernambuco mais acessíveis. Sua plataforma colaborativa de inclusão.</p>                  
+                </div>
+                <div class="footer-col-links">
+                    <div class="links-group">
+                        <h3>Navegação</h3>
+                        <ul class="footer-links">
+                            <li><a href="mapa.html">Acessar Mapa</a></li>
+                            <li><a href="sobre.html">Sobre Nós</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-group">
+                        <h3>Legal</h3>
+                        <ul class="footer-links">
+                            <li><a href="termos.html">Política de Privacidade</a></li>
+                            <li><a href="termos.html">Termos de Uso</a></li>
+                            <li><a href="faq.html">FAQ / Ajuda</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OpenAccess. Todos os direitos reservados. | Desenvolvido em Pernambuco.</p>
+            </div>
+        </div>
+    </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
     </script>
+    <script src="../assets/js/navbar.js"></script>
 </body>
 </html>

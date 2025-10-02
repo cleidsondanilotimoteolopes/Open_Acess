@@ -1,5 +1,13 @@
 /* -------------------- PÁGINA FAQ -------------------- */
 
+.hero-secondary {
+    background-color: #6c63ff; 
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Seção FAQ */
 .faq-section {
     padding: 60px 0 100px 0;
     background-color: #ffffff;
