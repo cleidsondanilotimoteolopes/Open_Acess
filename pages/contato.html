@@ -53,9 +53,13 @@
     </section>
         <div class="container contato-grid">
             
-            <div class="contato-form-container">
+           <div class="contato-form-container">
                 <h2>Envie uma Mensagem</h2>
-                <form action="https://formspree.io/f/{}" method="POST" class="form-rekord">
+    
+                <form action="https://formspree.io/f/mblzkaep" method="POST" class="form-rekord" id="contatoForm">
+                    
+                    <input type="hidden" name="_next" value="https://openacess.vercel.app/pages/contato.html" /> 
+                    
                     <label for="nome">Seu Nome</label>
                     <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
 
@@ -76,7 +80,7 @@
 
                     <button type="submit" class="btn-principal-rekord">Enviar Mensagem</button>
                     <p class="form-feedback" id="form-msg"></p>
-                </form>
+                    </form>
             </div>
 
             <div class="contato-info-container">
@@ -104,6 +108,7 @@
     </section>
 
     <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/contato.js"></script>
     
 </body>
 </html>
