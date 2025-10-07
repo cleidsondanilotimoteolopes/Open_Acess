@@ -1,0 +1,117 @@
+/*
+ * ----------------------------------------
+ * ESTILOS GERAIS E FUNDO
+ * ----------------------------------------
+ */
+
+body {
+    /* Remove margem padrão, usa uma fonte limpa e garante 100% da altura da tela */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex; /* Permite centralizar o fieldset */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Altura mínima de 100% da viewport */
+    background-color: #333; /* Cor de fallback caso a imagem não carregue */
+}
+
+.fundo {
+    /* Estilo para a imagem de fundo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra toda a área */
+    z-index: -1; /* Coloca a imagem atrás de todo o conteúdo */
+    filter: brightness(0.7); /* Escurece um pouco a imagem para melhorar o contraste */
+}
+
+/*
+ * ----------------------------------------
+ * ESTILO DO CARD (FIELDSET)
+ * ----------------------------------------
+ */
+
+fieldset {
+    /* Estilo do container principal */
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
+    color: white; /* Texto em branco para contraste */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    max-width: 400px;
+    width: 90%; /* Responsividade básica */
+    border: none; /* Remove a borda padrão do fieldset */
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #007bff; /* Linha decorativa azul */
+    padding-bottom: 10px;
+}
+
+label {
+    /* Garante que o rótulo seja visível e tenha bom espaçamento */
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+/*
+ * ----------------------------------------
+ * ESTILO DOS CAMPOS E BOTÕES
+ * ----------------------------------------
+ */
+
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Escurece no hover */
+}
+
+hr {
+    /* Linha separadora */
+    border: 0;
+    height: 1px;
+    background: #555;
+    margin: 30px 0 20px 0;
+}
+
+a {
+    /* Estilo para o link "Voltar para o Login" */
+    color: #999 !important; /* Cor mais suave para o link de rodapé */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #007bff !important; /* Destaca em azul no hover */
+}
