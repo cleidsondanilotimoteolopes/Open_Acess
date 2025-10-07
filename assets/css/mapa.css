@@ -1,3 +1,40 @@
+/* -------------------- TOAST NOTIFICATION (Melhoria do Feedback) -------------------- */
+.toast-notification {
+    position: fixed;
+    bottom: 25px; /* Posição na parte inferior */
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Começa escondido abaixo da tela */
+    background-color: #333;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 10000; /* Garante que fique acima do mapa e sidebar */
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Transição suave */
+    pointer-events: none; /* Não bloqueia cliques no mapa */
+    min-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Sobe para a posição final */
+}
+
+/* Cores de status para feedback */
+.toast-notification.success {
+    background-color: #4CAF50; /* Verde para sucesso (salvo) */
+}
+
+.toast-notification.removed {
+    background-color: #F44336; /* Vermelho/Laranja para remoção */
+}
+
+/* -------------------- MAPA - Estilos adicionais -------------------- */
+
 /* Loading Indicator centralizado e elegante */
 #map {
   position: relative;

@@ -16,6 +16,7 @@
 <link rel="icon" type="image/png" href="../assets/img/logo.png" />
 </head>
 <body>
+  <div id="toast-message" class="toast-notification"></div>
   <nav class="navbar navbar-light bg-light shadow-sm fixed-top">
     <div class="container-fluid">
       <button class="btn d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +61,7 @@
         </a>
       </li>
       <li class="nav-item mb-2">
-        <a class="nav-link d-flex align-items-center text-dark" href="#">
+        <a class="nav-link d-flex align-items-center text-dark" href="favoritos.html">
           <i class="bi bi-bookmark me-2"></i> Favoritos
         </a>
       </li>
@@ -119,15 +120,17 @@
       </button>
     </div>
   </div>
-  <aside id="sidebar">
-    <button class="close-btn btn btn-sm btn-outline-secondary">X</button>
-    <h4 id="local-nome"></h4>
-    <p id="local-categoria"></p>
-    <div id="local-status"></div>
-    <hr />
-    <p id="local-descricao"></p>
-  </aside>
-
+ <aside id="sidebar">
+     <button class="close-btn btn btn-sm btn-outline-secondary">X</button>
+     <h4 id="local-nome"></h4>
+     <p id="local-categoria"></p>
+     <div id="local-status"></div>
+     <hr />
+     <p id="local-descricao"></p>
+     <hr /> 
+       <div id="sidebar-actions" class="sidebar-actions d-flex flex-column gap-2">
+       </div>
+ </aside>
   <div id="map">
     <div id="loading-indicator" style="display:none;">
       <div class="spinner"></div>

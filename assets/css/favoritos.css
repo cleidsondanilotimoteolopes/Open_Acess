@@ -1,0 +1,231 @@
+/* -------------------- PÁGINA FAVORITOS -------------------- */
+
+.favoritos-main-section {
+    padding: 120px 0 80px 0; 
+    background-color: #f7f7f7;
+}
+
+.titulo-favoritos {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* Estilo do Botão Voltar para o Mapa */
+.btn-volta-mapa {
+    position: absolute;
+    top: -50px; 
+    left: 0;
+    text-decoration: none;
+    color: #4b0082; 
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.btn-volta-mapa i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.btn-volta-mapa:hover {
+    background-color: #e6e6fa; 
+}
+
+.titulo-favoritos h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.titulo-favoritos h1 i {
+    color: #ff6347;
+    margin-right: 15px;
+}
+
+.titulo-favoritos .subtitle {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Grid de Cards */
+.favoritos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+/* Estilo do Card Individual */
+.local-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.local-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* NOVO: Ícone no lugar da foto */
+.local-icon-container {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f5; 
+    border-bottom: 1px solid #eee;
+}
+
+.local-icon-container i {
+    font-size: 5rem;
+    color: #6c63ff;
+    opacity: 0.7;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #4b0082;
+    margin-bottom: 5px;
+}
+
+.local-endereco {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 18px;
+}
+
+.local-endereco i {
+    color: #6c63ff;
+    margin-right: 5px;
+}
+
+/* Tags de Acessibilidade */
+.acessibilidade-tags {
+    margin-bottom: 25px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-rampa { background-color: #d4edda; color: #155724; }
+.tag-banheiro { background-color: #ffe0b2; color: #e65100; }
+.tag-elevador { background-color: #bbdefb; color: #1565c0; }
+.tag-sinalizacao { background-color: #fce4ec; color: #ad1457; }
+
+/* Ações do Card */
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.btn-detalhes {
+    text-decoration: none;
+    color: #6c63ff;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.btn-detalhes:hover {
+    color: #4b0082;
+}
+
+.btn-remover {
+    background-color: #fcfcfc;
+    border: 2px solid #ff6347; 
+    color: #ff6347;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-remover:hover {
+    background-color: #ff6347;
+    color: white;
+}
+
+/* -------------------- ESTADO VAZIO -------------------- */
+
+.favoritos-vazio {
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 2px dashed #6c63ff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.favoritos-vazio i {
+    font-size: 3.5rem;
+    color: #6c63ff;
+    margin-bottom: 20px;
+}
+
+.favoritos-vazio h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.favoritos-vazio p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Media Query para Responsividade */
+@media (max-width: 768px) {
+    .favoritos-main-section {
+        padding-top: 100px;
+    }
+    .titulo-favoritos h1 {
+        font-size: 2.2rem;
+    }
+    .titulo-favoritos {
+        padding: 0 15px;
+    }
+    .btn-volta-mapa {
+        position: static; 
+        display: block;
+        text-align: left;
+        margin-bottom: 20px;
+        padding-left: 0;
+    }
+    .favoritos-grid {
+        grid-template-columns: 1fr; 
+        padding: 0 15px;
+    }
+    .card-content {
+        padding: 20px;
+    }
+}
