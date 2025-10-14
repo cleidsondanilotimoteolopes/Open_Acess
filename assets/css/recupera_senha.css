@@ -1,9 +1,4 @@
-/*
- * ----------------------------------------
- * ESTILOS GERAIS E FUNDO
- * ----------------------------------------
- */
-
+/* Estilos para a página de recuperação de senha */
 body {
     /* Remove margem padrão, usa uma fonte limpa e garante 100% da altura da tela */
     margin: 0;
@@ -27,12 +22,6 @@ body {
     filter: brightness(0.7); /* Escurece um pouco a imagem para melhorar o contraste */
 }
 
-/*
- * ----------------------------------------
- * ESTILO DO CARD (FIELDSET)
- * ----------------------------------------
- */
-
 fieldset {
     /* Estilo do container principal */
     background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
@@ -53,6 +42,8 @@ h1 {
     padding-bottom: 10px;
 }
 
+
+
 label {
     /* Garante que o rótulo seja visível e tenha bom espaçamento */
     display: block;
@@ -60,12 +51,6 @@ label {
     margin-bottom: 5px;
     font-size: 16px;
 }
-
-/*
- * ----------------------------------------
- * ESTILO DOS CAMPOS E BOTÕES
- * ----------------------------------------
- */
 
 input[type="email"] {
     width: 100%;
